@@ -1,14 +1,19 @@
 language: python
 python:
-  - "3.7"
+- '3.7'
 dist: xenial
 sudo: true
-
 env:
   global:
-    - PIPENV_VENV_IN_PROJECT=1
-    - PIPENV_IGNORE_VIRTUALENVS=1
-# command to install dependencies
+  - PIPENV_VENV_IN_PROJECT=1
+  - PIPENV_IGNORE_VIRTUALENVS=1
 install: make setup
-# # command to run tests
 script: make test
+
+deploy:
+  provider: pypi
+  user: pedrovanzella
+  password:
+    secure: r4ElgnBudEJMlgSOlRkKW5PRDZOMKf6dG+0BsPOuo4HblPFhQccGXLZ7X5/UXZqsjq/5n0gdKYWHex3SG/gimNHIPy7ndsXEoGYnBsR0K5CpXksop3l3RxRQOCOuleX1ptuvKh0LsnEW9kidKtlAcVc6f5RxLa66RBfHecfFyDGyeGWRTW2rLCIhqXtXYYF9R26Zl5C/HXeJL1xhO5xebooiC3FUBFfhmv7x+J2zXrs/ISLD1bKIEs8PjCurtxZYS7iweUJBTBXombbLEnNr1Csbt6nsCKT7iJYHIh7T6fzdYVgUQYDHzJVXT65+wLUzc3WfkTF3oZDCqkA7ueWF3mtSj2UL1hKFv2Q3GzQfd7KUyS6efKVLl8oKrro8wruj5LWKVx2gG7dNYmxkR1EimnHHKwzGvRnAB9cW3fOSvZxgZXwVjIUgs/Wf5+Um1eZLVH3x2GRkUiYPJBP2WL2o0AwYHk4+M5V6i4/C9f5G+Hwz6wkq7Js3ORsOc87g7iB0d4rNEm5gLlw1k2/A+ZQjlIt2r5HhY4ieG64hRpiQlZ3qIPlDB2tGgOZWRU/gKygPnn8xCTNUFbxwgMnhWHfXnVlp8K+iPIoKMI5SSZ1T0WB810RrzGN2fzW/aHuWYLfLBTFO91Pq15XWihBJFi3C3vGM03gqe2r2pCAsECV4G6Y=
+  on:
+    tags: true
