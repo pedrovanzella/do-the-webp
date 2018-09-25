@@ -30,9 +30,8 @@ def unrar(file: str, path: str=".") -> List[str]:
     """Unrars a file into a flat hierarchy"""
     names = []
     with rarfile.RarFile(file) as rar:
+        rar.extractall(path)
         for rar_info in rar.infolist():
-            rar.extract(rar_info, path)
-
             shutil.move(os.path.join(path, rar_info.filename), 
             os.path.join(path, 
             os.path.basename(rar_info.filename)))
