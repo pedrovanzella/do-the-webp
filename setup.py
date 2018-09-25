@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="do_the_webp",
-    version="0.1.1",
+    version="0.1.2",
     url="https://github.com/pedrovanzella/do-the-webp",
 
     author="Pedro Vanzella",

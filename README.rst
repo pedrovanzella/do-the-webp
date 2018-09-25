@@ -19,6 +19,7 @@ Installation
 
 Requirements
 ^^^^^^^^^^^^
+`unrar`. Note that `unrar-free` doesn't seem to work properly under Linux.
 
 Compatibility
 -------------
