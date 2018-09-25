@@ -31,8 +31,6 @@ def unrar(file: str, path: str=".") -> List[str]:
     names = []
     with rarfile.RarFile(file) as rar:
         for rar_info in rar.infolist():
-            if rar_info.filename[-1] == '/':
-                continue
             rar.extract(rar_info, path)
 
             shutil.move(os.path.join(path, rar_info.filename), 
