@@ -4,7 +4,7 @@ from do_the_webp.extractor import extract
 import os
 import shutil
 
-EXTRACT_TO_DIR='./tmp'
+EXTRACT_TO_DIR='tmp'
 
 def setup_module():
     os.mkdir(EXTRACT_TO_DIR)

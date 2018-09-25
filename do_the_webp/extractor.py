@@ -32,9 +32,8 @@ def unrar(file: str, path: str=".") -> List[str]:
     with rarfile.RarFile(file) as rar:
         rar.extractall(path)
         for rar_info in rar.infolist():
+            basename = os.path.basename(rar_info.filename)
             shutil.move(os.path.join(path, rar_info.filename), 
-            os.path.join(path, 
-            os.path.basename(rar_info.filename)))
-
-            names.append(os.path.basename(rar_info.filename))
+                        os.path.join(path, basename))
+            names.append(basename)
     return names
