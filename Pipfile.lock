@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0d3efd2cacf9b196a2ef9753a8bd5271a49fb363fdc62eb3fdbebdea02ebdffb"
+            "sha256": "d4feb7133717dc932497d955a0ed7dac887429dce288a70ed05dfd0bbd52626e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -15,7 +15,15 @@
             }
         ]
     },
-    "default": {},
+    "default": {
+        "rarfile": {
+            "hashes": [
+                "sha256:e816409e3b36794507cbe0b678bed3e4703d7412c5f7f9201a510ed6fdc66c35"
+            ],
+            "index": "pypi",
+            "version": "==3.0"
+        }
+    },
     "develop": {
         "astroid": {
             "hashes": [
