@@ -1,4 +1,3 @@
-from tests.test_helper import cleanup
 from do_the_webp.extractor import extract
 
 import os
