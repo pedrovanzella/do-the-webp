@@ -4,14 +4,17 @@ import shutil
 import os
 import zipfile
 
-COMPRESS_TO_DIR='tmp'
-SOURCE_DIR='samples/to_be_compressed'
+COMPRESS_TO_DIR = 'tmp'
+SOURCE_DIR = 'samples/to_be_compressed'
+
 
 def setup_module():
     os.mkdir(COMPRESS_TO_DIR)
 
+
 def teardown_module():
     shutil.rmtree(COMPRESS_TO_DIR)
+
 
 def test_compress_dir():
     zipped = compress(SOURCE_DIR, COMPRESS_TO_DIR)

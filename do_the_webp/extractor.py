@@ -5,6 +5,7 @@ import shutil
 
 from typing import List
 
+
 def extract(file: str, path: str=".") -> List[str]:
     """Extracts a file based on the file type"""
     if zipfile.is_zipfile(file):
@@ -12,6 +13,7 @@ def extract(file: str, path: str=".") -> List[str]:
     if rarfile.is_rarfile(file):
         return unrar(file, path)
     return []
+
 
 def unzip(file: str, path: str=".") -> List[str]:
     """Unzips a file into a flat hierarchy"""
@@ -26,6 +28,7 @@ def unzip(file: str, path: str=".") -> List[str]:
             names.append(zip_info.filename)
     return names
 
+
 def unrar(file: str, path: str=".") -> List[str]:
     """Unrars a file into a flat hierarchy"""
     names = []
@@ -33,7 +36,7 @@ def unrar(file: str, path: str=".") -> List[str]:
         rar.extractall(path)
         for rar_info in rar.infolist():
             basename = os.path.basename(rar_info.filename)
-            shutil.move(os.path.join(path, rar_info.filename), 
+            shutil.move(os.path.join(path, rar_info.filename),
                         os.path.join(path, basename))
             names.append(basename)
     return names

@@ -1,13 +1,10 @@
 import zipfile
 import os
-import shutil
 
-from typing import List
 
 def compress(src: str, dst: str=".") -> str:
     """Compresses the contents of `dir` and outputs a cbz to `path`.
-    Returns the filename
-    """
+    Returns the filename"""
     basename = os.path.basename(src)
     with zipfile.ZipFile(os.path.join(dst, basename + '.cbz'), 'a') as myzip:
         for file in os.listdir(src):
