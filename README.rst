@@ -14,8 +14,14 @@ Converts cbz/cbr comic files to webp
 Usage
 -----
 
+`do-the-webp <dir>`.
+
+This will overwrite your files!
+
 Installation
 ------------
+
+`pip install do-the-webp`
 
 Requirements
 ^^^^^^^^^^^^
