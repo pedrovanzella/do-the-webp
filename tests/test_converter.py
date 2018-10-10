@@ -20,4 +20,8 @@ def test_convert():
     converted = convert('samples/lenna.jpg', DST_DIR)
     assert filecmp.cmp(os.path.join(DST_DIR, converted),
                        'samples/lenna.webp'), "converted file equals reference file"
-    pass
+
+
+def test_convert_skips_unkown_files():
+    converted = convert('samples/invalid.xml', DST_DIR)
+    assert converted is None

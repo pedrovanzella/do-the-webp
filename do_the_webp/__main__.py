@@ -21,11 +21,13 @@ if __name__ == '__main__':
         os.mkdir(CONVERT_TMP_DIR)
         os.mkdir(COMPRESS_TMP_DIR)
 
-        converted = []
-
         print("[+] Converting {0}/{1}".format(file[0], file[1]))
         for jpg in extract(os.path.join(file[0], file[1]), EXTRACT_TMP_DIR):
-            converted.append(convert(os.path.join(EXTRACT_TMP_DIR, jpg), CONVERT_TMP_DIR))
+            webp = convert(os.path.join(EXTRACT_TMP_DIR, jpg), CONVERT_TMP_DIR)
+            if webp is None:
+                # Possibly not a jpeg. Maybe a xml, or even already a webp
+                print("[!] File {0} not a valid format. Copying without conversion.".format(jpg))
+                shutil.move(os.path.join(EXTRACT_TMP_DIR, jpg), os.path.join(COMPRESS_TMP_DIR, jpg))
         
         zipped = compress(CONVERT_TMP_DIR, TMP_DIR)
 
