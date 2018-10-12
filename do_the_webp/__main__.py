@@ -12,7 +12,8 @@ EXTRACT_TMP_DIR = '/tmp/do-the-webp/extract'
 CONVERT_TMP_DIR = '/tmp/do-the-webp/convert'
 TMP_DIR = '/tmp/do-the-webp'
 
-if __name__ == '__main__':
+
+def process(dir):
     try:
         os.mkdir(TMP_DIR)
     except FileExistsError:
@@ -22,7 +23,7 @@ if __name__ == '__main__':
 
     os.chdir(TMP_DIR)
 
-    for file in traverse(sys.argv[1]):
+    for file in traverse(dir):
         os.mkdir(EXTRACT_TMP_DIR)
         os.mkdir(CONVERT_TMP_DIR)
 
@@ -46,3 +47,7 @@ if __name__ == '__main__':
         shutil.rmtree(CONVERT_TMP_DIR)
         print("[+] Cleaned up")
         print("")
+
+
+if __name__ == '__main__':
+    process(sys.argv[1])
